@@ -16,7 +16,9 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -37,6 +39,12 @@ fun RegistrationPage(
     navigateToHomePage: () -> Unit,
     navigateToLogIn : () -> Unit
 ){
+    var userName by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var mobile by remember { mutableStateOf("") }
+    val focusManager = LocalFocusManager.current
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -62,14 +70,14 @@ fun RegistrationPage(
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color(254,208,73)
             ),
-            onValueChange = {  },
+            onValueChange = { userName = it },
             label = { R.string.user_name },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
             ),
             keyboardActions = KeyboardActions(
-                onNext = { }
+                onNext = { focusManager.moveFocus(FocusDirection.Down) }
             ),
         )
         OutlinedTextField(
@@ -85,11 +93,11 @@ fun RegistrationPage(
                 imeAction = ImeAction.Next
             ),
             keyboardActions = KeyboardActions(
-                onNext = { }
+                onDone = { focusManager.clearFocus() }
             ),
         )
         Button(
-            onClick = { },
+            onClick = { navigateToHomePage() },
             modifier= Modifier
                 .align(Alignment.End)
                 .border(
@@ -119,7 +127,7 @@ fun RegistrationPage(
                 fontSize = 16.sp,
                 modifier = Modifier
                     .clickable(
-                        onClick = { }
+                        onClick = { navigateToLogIn }
                     ),
                 color = BlueMain
             )

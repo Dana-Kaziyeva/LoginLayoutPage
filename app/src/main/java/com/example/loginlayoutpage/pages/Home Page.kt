@@ -1,6 +1,7 @@
 package com.example.loginlayoutpage.pages
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -30,6 +31,11 @@ fun HomePage(
             color = BlueMain,
             fontSize = 20.sp,
             textAlign = TextAlign.Center,
+        )
+        Text(
+            "Exit",
+            fontSize = 18.sp,
+            modifier = Modifier.padding(10.dp).clickable(onClick = navigateBack)
         )
     }
 }

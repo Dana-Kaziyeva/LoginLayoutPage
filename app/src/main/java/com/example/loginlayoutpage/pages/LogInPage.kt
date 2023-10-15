@@ -92,7 +92,7 @@ fun LogInPage(
                 imeAction = ImeAction.Next
             ),
             keyboardActions = KeyboardActions(
-                onNext = { focusManager.clearFocus() }
+                onDone = { focusManager.clearFocus() }
             ),
         )
 
