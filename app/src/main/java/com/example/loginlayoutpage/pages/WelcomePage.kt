@@ -30,7 +30,9 @@ import com.example.loginlayoutpage.ui.theme.YellowMain
 
 @Composable
 fun WelcomePage(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigateToLogIn : () -> Unit,
+    navigateToRegister : () -> Unit
 ){
     Surface(modifier = modifier.fillMaxSize(),
         color = MainBackgroundColor
@@ -55,7 +57,7 @@ fun WelcomePage(
                 Arrangement.Center
             ) {
                 Button(
-                    onClick = {},
+                    onClick = {navigateToRegister},
                     modifier = Modifier
                         .padding(bottom = 20.dp, end = 40.dp, start = 40.dp)
                         .width(300.dp),
@@ -67,7 +69,7 @@ fun WelcomePage(
                 }
 
                 Button(
-                    onClick = {},
+                    onClick = { navigateToLogIn},
                     modifier = Modifier
                         .padding(top = 20.dp, end = 40.dp, start = 40.dp)
                         .width(300.dp),
@@ -82,10 +84,10 @@ fun WelcomePage(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun WelcomePageAppPreview() {
-    LoginLayoutPageTheme {
-        WelcomePage()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun WelcomePageAppPreview() {
+//    LoginLayoutPageTheme {
+//        WelcomePage()
+//    }
+//}

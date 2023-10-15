@@ -16,7 +16,9 @@ import com.example.loginlayoutpage.ui.theme.LoginLayoutPageTheme
 import com.example.loginlayoutpage.ui.theme.MainBackgroundColor
 
 @Composable
-fun HomePage() {
+fun HomePage(
+    navigateBack: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -32,10 +34,10 @@ fun HomePage() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun HomePageAppPreview() {
-    LoginLayoutPageTheme {
-        HomePage()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun HomePageAppPreview() {
+//    LoginLayoutPageTheme {
+//        HomePage()
+//    }
+//}

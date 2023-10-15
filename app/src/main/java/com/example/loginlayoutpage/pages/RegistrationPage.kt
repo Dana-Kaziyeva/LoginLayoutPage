@@ -34,6 +34,8 @@ import com.example.loginlayoutpage.ui.theme.YellowMinor
 @Composable
 fun RegistrationPage(
     modifier: Modifier = Modifier,
+    navigateToHome: () -> Unit,
+    navigateToSignIn : () -> Unit
 ){
     Column(
         modifier = modifier
@@ -125,10 +127,10 @@ fun RegistrationPage(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun RegistrationPageAppPreview() {
-    LoginLayoutPageTheme {
-        RegistrationPage()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun RegistrationPageAppPreview() {
+//    LoginLayoutPageTheme {
+//        RegistrationPage()
+//    }
+//}

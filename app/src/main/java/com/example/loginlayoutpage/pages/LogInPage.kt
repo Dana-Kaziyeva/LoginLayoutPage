@@ -17,6 +17,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -35,7 +36,14 @@ import com.example.loginlayoutpage.ui.theme.YellowMinor
 @Composable
 fun LogInPage(
     modifier: Modifier = Modifier,
+    navigateToHome: () -> Unit,
+    navigateToRegister: () -> Unit
 ){
+    var userName by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    val focusManager = LocalFocusManager.current
+    val passwordVisibility by remember { mutableStateOf(false) }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -60,7 +68,7 @@ fun LogInPage(
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color(254,208,73)
             ),
-            onValueChange = {  },
+            onValueChange = { userName = it },
             label = { R.string.user_name },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Text,
@@ -76,7 +84,7 @@ fun LogInPage(
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color(254,208,73)
             ),
-            onValueChange = {  },
+            onValueChange = { password = it },
             label = { R.string.password },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Text,
@@ -88,7 +96,7 @@ fun LogInPage(
         )
 
         Button(
-            onClick = { },
+            onClick = { navigateToHome() },
             modifier= Modifier
                 .align(Alignment.End)
                 .border(
@@ -131,13 +139,13 @@ fun LogInPage(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LogInPageAppPreview() {
-    LoginLayoutPageTheme {
-        LogInPage()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun LogInPageAppPreview() {
+//    LoginLayoutPageTheme {
+//        LogInPage()
+//    }
+//}
 
 
 
