@@ -16,10 +16,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -31,7 +28,6 @@ import com.example.loginlayoutpage.R
 import com.example.loginlayoutpage.ui.theme.BlueMain
 import com.example.loginlayoutpage.ui.theme.LoginLayoutPageTheme
 import com.example.loginlayoutpage.ui.theme.MainBackgroundColor
-import com.example.loginlayoutpage.ui.theme.YellowMain
 import com.example.loginlayoutpage.ui.theme.YellowMinor
 
 @OptIn(ExperimentalMaterial3Api::class)
