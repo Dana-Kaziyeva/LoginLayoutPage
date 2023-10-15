@@ -23,6 +23,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -64,29 +66,32 @@ fun LogInPage(
         Spacer(Modifier.height(26.dp))
 
         OutlinedTextField(
-            value = "User name",
+            label = { Text(stringResource(R.string.user_name)) },
             singleLine = true,
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color(254,208,73)
             ),
+            value = userName,
             onValueChange = { userName = it },
-            label = { R.string.user_name },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
                 ),
             keyboardActions = KeyboardActions(
-                onNext = { focusManager.moveFocus(FocusDirection.Down) }
+                onNext = { focusManager.moveFocus(FocusDirection.Down) },
             ),
+            visualTransformation = VisualTransformation.None
+//            if (false) VisualTransformation.None
+//            else PasswordVisualTransformation(),
         )
         OutlinedTextField(
-            value = "Password",
+            value = password,
             singleLine = true,
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color(254,208,73)
             ),
             onValueChange = { password = it },
-            label = { R.string.password },
+            label = {  Text(stringResource(R.string.password)) },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
@@ -94,6 +99,7 @@ fun LogInPage(
             keyboardActions = KeyboardActions(
                 onDone = { focusManager.clearFocus() }
             ),
+            visualTransformation = PasswordVisualTransformation(),
         )
 
         Button(
@@ -132,7 +138,7 @@ fun LogInPage(
                 fontSize = 18.sp,
                 modifier = Modifier
                     .clickable(
-                        onClick = { navigateToRegister }
+                        onClick = { navigateToRegister() }
                     ),
                 color = BlueMain
             )

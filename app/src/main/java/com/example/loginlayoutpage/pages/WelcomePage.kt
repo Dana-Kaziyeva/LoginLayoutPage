@@ -57,7 +57,7 @@ fun WelcomePage(
                 Arrangement.Center
             ) {
                 Button(
-                    onClick = {navigateToRegister},
+                    onClick = {navigateToRegister() },
                     modifier = Modifier
                         .padding(bottom = 20.dp, end = 40.dp, start = 40.dp)
                         .width(300.dp),
@@ -69,7 +69,7 @@ fun WelcomePage(
                 }
 
                 Button(
-                    onClick = { navigateToLogIn},
+                    onClick = { navigateToLogIn() },
                     modifier = Modifier
                         .padding(top = 20.dp, end = 40.dp, start = 40.dp)
                         .width(300.dp),

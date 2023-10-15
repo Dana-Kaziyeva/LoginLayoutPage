@@ -23,6 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,9 +41,7 @@ fun RegistrationPage(
     navigateToLogIn : () -> Unit
 ){
     var userName by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var mobile by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
 
     Column(
@@ -65,13 +64,13 @@ fun RegistrationPage(
         Spacer(Modifier.height(16.dp))
 
         OutlinedTextField(
-            value = "User name",
+            value = userName,
             singleLine = true,
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color(254,208,73)
             ),
             onValueChange = { userName = it },
-            label = { R.string.user_name },
+            label = { Text(stringResource(R.string.user_name)) },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
@@ -79,15 +78,16 @@ fun RegistrationPage(
             keyboardActions = KeyboardActions(
                 onNext = { focusManager.moveFocus(FocusDirection.Down) }
             ),
+            visualTransformation = VisualTransformation.None
         )
         OutlinedTextField(
-            value = "Password",
+            value = password,
             singleLine = true,
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color(254,208,73)
             ),
-            onValueChange = {  },
-            label = { R.string.password },
+            onValueChange = { password = it },
+            label = { Text(stringResource(R.string.password)) },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
@@ -95,6 +95,7 @@ fun RegistrationPage(
             keyboardActions = KeyboardActions(
                 onDone = { focusManager.clearFocus() }
             ),
+            visualTransformation = VisualTransformation.None
         )
         Button(
             onClick = { navigateToHomePage() },
@@ -127,7 +128,7 @@ fun RegistrationPage(
                 fontSize = 16.sp,
                 modifier = Modifier
                     .clickable(
-                        onClick = { navigateToLogIn }
+                        onClick = { navigateToLogIn() }
                     ),
                 color = BlueMain
             )
