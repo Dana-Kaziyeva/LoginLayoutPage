@@ -21,20 +21,20 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController =  navController, startDestination = "WelcomePage") {
                     composable("WelcomePage") {
                         WelcomePage(
-                            navigateToSignIn = { navController.navigate("Log in") },
-                            navigateToSignUp= { navController.navigate("Register") }
+                            navigateToLogIn = { navController.navigate("Log in") },
+                            navigateToRegister= { navController.navigate("Register") }
                         )
                     }
                     composable("Log in") {
                         LogInPage(
-                            navigateToHome = { navController.navigate("HomePage")},
-                            navigateToSignUp= { navController.navigate("Register") }
+                            navigateToHomePage = { navController.navigate("HomePage")},
+                            navigateToRegister= { navController.navigate("Register") }
                         )
                     }
                     composable("Register") {
                         RegistrationPage(
-                            navigateToHome = { navController.navigate("HomePage")},
-                            navigateToSignIn = { navController.navigate("SignIn") }
+                            navigateToHomePage = { navController.navigate("HomePage")},
+                            navigateToLogIn = { navController.navigate("SignIn") }
                         )
                     }
                     composable("HomePage") {

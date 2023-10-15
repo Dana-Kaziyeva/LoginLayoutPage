@@ -16,6 +16,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
@@ -36,7 +37,7 @@ import com.example.loginlayoutpage.ui.theme.YellowMinor
 @Composable
 fun LogInPage(
     modifier: Modifier = Modifier,
-    navigateToHome: () -> Unit,
+    navigateToHomePage: () -> Unit,
     navigateToRegister: () -> Unit
 ){
     var userName by remember { mutableStateOf("") }
@@ -75,7 +76,7 @@ fun LogInPage(
                 imeAction = ImeAction.Next
                 ),
             keyboardActions = KeyboardActions(
-                onNext = { }
+                onNext = { focusManager.moveFocus(FocusDirection.Down) }
             ),
         )
         OutlinedTextField(
@@ -91,12 +92,12 @@ fun LogInPage(
                 imeAction = ImeAction.Next
             ),
             keyboardActions = KeyboardActions(
-                onNext = { }
+                onNext = { focusManager.clearFocus() }
             ),
         )
 
         Button(
-            onClick = { navigateToHome() },
+            onClick = { navigateToHomePage() },
             modifier= Modifier
                 .align(Alignment.End)
                 .border(
@@ -115,7 +116,7 @@ fun LogInPage(
                 fontSize = 20.sp,
                 modifier = Modifier
                     .clickable(
-                        onClick = {  }
+                        onClick = { navigateToHomePage() }
                     ),
             )
         }
@@ -131,7 +132,7 @@ fun LogInPage(
                 fontSize = 18.sp,
                 modifier = Modifier
                     .clickable(
-                        onClick = { }
+                        onClick = { navigateToRegister }
                     ),
                 color = BlueMain
             )
