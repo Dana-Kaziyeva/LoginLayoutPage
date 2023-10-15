@@ -1,11 +1,8 @@
 <resources>
     <string name="app_name">LoginLayoutPage</string>
     <string name="logo">Logo</string>
-    <string name="welcome">Welcome</string>
     <string name="register">Register</string>
     <string name="log_in">Log in</string>
     <string name="user_name">User name</string>
-    <string name="email">Email</string>
-    <string name="phone_number">Phone number</string>
     <string name="password">Password</string>
 </resources>

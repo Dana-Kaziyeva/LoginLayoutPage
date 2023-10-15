@@ -29,6 +29,7 @@ import com.example.loginlayoutpage.ui.theme.BlueMain
 import com.example.loginlayoutpage.ui.theme.YellowMain
 import com.example.loginlayoutpage.ui.theme.LoginLayoutPageTheme
 import com.example.loginlayoutpage.ui.theme.MainBackgroundColor
+import com.example.loginlayoutpage.ui.theme.YellowMinor
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -104,11 +105,9 @@ fun LogInPage(
             Text(
                 text = "Get started",
                 color = Color.White,
-                fontSize = 18.sp,
+                fontSize = 20.sp,
                 modifier = Modifier
                     .clickable(
-                        // check password and username
-                        //if valid navigate
                         onClick = {  }
                     ),
             )
@@ -117,12 +116,12 @@ fun LogInPage(
         Row {
             Text(
                 text = "Not registered?  ",
-                color = BlueMain,
-                fontSize = 16.sp
+                color = YellowMinor,
+                fontSize = 18.sp
             )
             Text(
                 text = "Sign up",
-                fontSize = 16.sp,
+                fontSize = 18.sp,
                 modifier = Modifier
                     .clickable(
                         onClick = { }
