@@ -1,5 +1,6 @@
 package com.example.loginlayoutpage.pages
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,6 +15,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,37 +54,36 @@ fun WelcomePage(
                     .height(350.dp),
                 Alignment.Center
             )
+
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(10.dp),
-                Arrangement.SpaceAround
+                    .padding(20.dp),
+                Arrangement.Center
             ) {
-                Text(
-                    text = stringResource(R.string.register),
+                Button(
+                    onClick = {},
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp)
-                        .border(width = 2.dp, color = Color.White, shape = RectangleShape)
-                        .clickable(
-                            onClick = {}
-                        ),
-                    color = Color.White,
-                    fontSize = 20.sp
+                        .padding(bottom = 20.dp, end = 40.dp, start = 40.dp)
+                        .width(300.dp),
+                    colors = buttonColors(containerColor = Color(0,113,188)),
+                    border = BorderStroke(3.dp, Color(247,178,59)),
                 )
+                {
+                    Text(text = stringResource(R.string.register), fontSize = 30.sp)
+                }
 
-                Text(
-                    text = stringResource(R.string.log_in),
+                Button(
+                    onClick = {},
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp)
-                        .border(width = 2.dp, color = Color.White, shape = RectangleShape)
-                        .clickable(
-                            onClick = { }
-                        ),
-                    color = Color.White,
-                    fontSize = 20.sp
+                        .padding(top = 20.dp, end = 40.dp, start = 40.dp)
+                        .width(300.dp),
+                    colors = buttonColors(containerColor = Color(0,113,188)),
+                    border = BorderStroke(3.dp, Color(247,178,59)),
                 )
+                {
+                    Text(text = stringResource(R.string.log_in), fontSize = 30.sp)
+                }
             }
         }
     }
