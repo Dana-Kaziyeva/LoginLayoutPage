@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.loginlayoutpage.R
 import com.example.loginlayoutpage.ui.theme.BlueMain
-import com.example.loginlayoutpage.ui.theme.YellowMain
 import com.example.loginlayoutpage.ui.theme.LoginLayoutPageTheme
 import com.example.loginlayoutpage.ui.theme.MainBackgroundColor
 import com.example.loginlayoutpage.ui.theme.YellowMinor
